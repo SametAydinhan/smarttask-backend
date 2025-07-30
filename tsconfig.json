@@ -1,0 +1,21 @@
+{
+  "types": [
+    "@types/babel__core",
+    "@types/babel__generator",
+    "@types/babel__template",
+    "@types/babel__traverse",
+    "@types/body-parser",
+    "@types/cors",
+    "@types/express",
+    "@types/helmet",
+    "@types/morgan",
+    "@types/node"
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
