@@ -4,6 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import authRoutes from "./routes/auth";
+import protectedRoutes from "./routes/protected"
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.get("/", (_req, res) => {
   res.send("SmartTask backend is running ✅");
 });
 app.use("/api/auth", authRoutes);
+app.use("/api", protectedRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
