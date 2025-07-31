@@ -20,4 +20,33 @@ model User {
   password String
   role     String  @default("member")
   createdAt DateTime @default(now())
+  ownedProjects Project[] 
+  assignedTasks Task[]
+}
+
+model Project {
+  id        Int     @id @default(autoincrement())
+  name      String
+  ownerId   Int
+  owner     User    @relation(fields: [ownerId], references: [id])
+  tasks     Task[]
+  createdAt DateTime @default(now())
+}
+
+model Task {
+  id        Int     @id @default(autoincrement())
+  title     String
+  description String?
+  status     TaskStatus @default(TODO)
+  projectId Int
+  assignedTo Int?
+  project Project @relation(fields: [projectId], references: [id])
+  assignee User? @relation(fields: [assignedTo], references: [id])
+  createdAt DateTime @default(now())  
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  DONE
 }

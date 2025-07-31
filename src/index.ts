@@ -5,6 +5,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import authRoutes from "./routes/auth";
 import protectedRoutes from "./routes/protected"
+import projectRoutes from "./routes/project"
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.get("/", (_req, res) => {
 });
 app.use("/api/auth", authRoutes);
 app.use("/api", protectedRoutes);
+app.use("/api/projects", projectRoutes)
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
