@@ -6,6 +6,7 @@ import morgan from "morgan";
 import authRoutes from "./routes/auth";
 import protectedRoutes from "./routes/protected"
 import projectRoutes from "./routes/project"
+import taskRoutes from "./routes/task"
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.get("/", (_req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api", protectedRoutes);
 app.use("/api/projects", projectRoutes)
+app.use("/api/tasks", taskRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
